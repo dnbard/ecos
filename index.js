@@ -1,4 +1,4 @@
 module.exports = {
     factory: require('./factory'),
-    objects: require('./objects')
+    entities: require('./entities')
 };

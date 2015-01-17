@@ -1,5 +1,5 @@
 var _ = require('lodash'),
-    Objects = require('./objects.js'),
+    Entities = require('./entities.js'),
     Extenders = require('./src/extenders.js');
 
 var methods = {},
@@ -71,7 +71,7 @@ function Factory(options){
         },
             assign = _.extend(this.default, options);
 
-        Objects.set(entity);
+        Entities.set(entity);
 
         _.each(this.blueprint.presets, function(presetName){
             var preset = presets[presetName];
