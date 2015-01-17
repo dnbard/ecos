@@ -17,7 +17,7 @@ function bundle() {
   return bundler.bundle()
     // log errors if they happen
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
-    .pipe(source('eos.js'))
+    .pipe(source('ecos.js'))
     .pipe(buffer())
     .pipe(uglify())
     .pipe(gulp.dest('./dist'));
