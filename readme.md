@@ -159,3 +159,26 @@ Result:
 Value set to 0.758898114
 ```
 If you wont specify `get` or `set` function in extender definition then resulting field wont have getter or setter defined.
+
+####Create entity with FUNCTION extender:
+This extender will run custom function on object creation.
+
+```js
+factory.registerExtender('function-extender', {
+    type: extenders.FUNCTION,
+    handler: function(thisObject){
+        console.log('Creating ' + JSON.stringify(thisObject));
+    }
+});
+
+var entityFactory = factory.create({
+    extend: ['function-extender'],
+    name: 'example'
+});
+
+entityFactory.create();
+```
+Result:
+```
+Creating {"type":"example", "id":0}
+```
