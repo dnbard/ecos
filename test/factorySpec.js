@@ -1,6 +1,6 @@
 var expect = (require('chai')).expect,
     factory = require('../factory.js'),
-    _ = require('../src/lodash.custom');
+    _ = require('lodash');
 
 var fixtures = [{
     name: 'fixture',
@@ -133,9 +133,17 @@ describe('Factory', function(){
         it('should be a function', function(){
             expect(factory.reset).to.be.a('function');
         });
+
+        it('should reset factory', function(){
+            factory.registerExtender('1', {});
+            factory.reset();
+            expect(function(){
+                factory.registerExtender('1', {});
+            }).to.not.throw(/already initialized/);
+        });
     });
 
-    describe('object.#create', function(){
+    describe('factory.#create', function(){
         var fixtureFactory;
 
         beforeEach(function(){

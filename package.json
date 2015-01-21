@@ -1,12 +1,16 @@
 {
-  "name": "eos",
+  "name": "ecos",
   "version": "1.0.0",
   "description": "Entity Object System",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
-  "author": "",
+  "repository":{
+    "type": "git",
+    "url": "https://github.com/dnbard/ecos"
+  },
+  "author": "Alex Bardanov",
   "license": "MIT",
   "devDependencies": {
     "gulp": "^3.8.10",
@@ -18,6 +22,7 @@
     "brfs": "^1.2.0",
     "gulp-uglify": "^1.0.2",
     "chai": "^1.10.0",
-    "mocha": "^2.1.0"
+    "mocha": "^2.1.0",
+    "lodash": "^2.4.1"
   }
 }
