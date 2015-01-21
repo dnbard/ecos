@@ -1,5 +1,5 @@
 module.exports = {
-    factory: require('./factory'),
-    entities: require('./entities'),
+    factory: require('./src/factory'),
+    entities: require('./src/entities'),
     extenders: require('./src/extenders')
 };
