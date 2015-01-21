@@ -73,14 +73,16 @@ var entityFactory = factory.create(options);
 * **custom** - list of entity properties with predefined values, will overwrite `props` and `default` options, is entity with this set will be accessible through `entityFactory.customEntity()` call, *{ customEntityName: { propName: propValue } }*
 
 ####Create basic entity:
+Will create entity with fields.
 ```js
 var factory = require('ecos').factory;
 var entityFactory = factory.create({
     props: [ 'x', 'y' ],
     name: 'example'
 });
-var entity = entityFactory.create();
+entityFactory.create();
 ```
+Result:
 ```
 {
     type: 'example',
@@ -90,36 +92,34 @@ var entity = entityFactory.create();
 }
 ```
 
-####Create entity with defined values:
+If you pass object with fields to entity constructor then factory will create entity with specified fields defined:
 ```js
-var factory = require('ecos').factory;
-var entityFactory = factory.create({
-    props: [ 'x', 'y' ],
-    name: 'example'
-});
-var entity = entityFactory.create({x: 1, y: 1});
+entityFactory.create({x: 100, y: 200});
 ```
+Result:
 ```
 {
     type: 'example',
-    x: 1,
-    y: 1,
+    x: 100,
+    y: 200,
     id: 0
 }
 ```
 
 ####Create entity with method:
+Use `factory.registerMethod` to register method that can be assigned to entity:
 ```js
-var factory = require('ecos').factory;
 factory.registerMethod('console', function(text){
     console.log(text);
 });
+
 var entityFactory = factory.create({
     methods: ['console'],
     name: 'example'
 });
-var entity = entityFactory.create();
+entityFactory.create();
 ```
+Result:
 ```
 {
     type: 'example',
@@ -129,12 +129,11 @@ var entity = entityFactory.create();
 ```
 
 ####Create entity with GETSET extender:
-
 This extender will create field with defined getter and setter.
 
 ```js
-var factory = require('ecos').factory;
 var extenders = require('ecos').extenders;
+
 factory.registerExtender('value-extender', {
     get: function(){
         return this._value;
@@ -146,12 +145,17 @@ factory.registerExtender('value-extender', {
     name: 'value',
     type: extenders.GETSET
 });
+
 var entityFactory = factory.create({
     extend: ['value-extender'],
     name: 'example'
 });
-var entity = entityFactory.create();
+
+entityFactory.create();
 entity.value = Math.random();
 ```
-
+Result:
+```
+Value set to 0.758898114
+```
 If you wont specify `get` or `set` function in extender definition then resulting field wont have getter or setter defined.
