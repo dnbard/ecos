@@ -1,6 +1,6 @@
 {
   "name": "ecos",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Entity Object System",
   "main": "index.js",
   "scripts": {
