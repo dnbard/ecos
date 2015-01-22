@@ -1,6 +1,5 @@
 var expect = (require('chai')).expect,
     index = require('../index.js'),
-    _ = require('lodash'),
     factoryModule = require('../src/factory'),
     entitiesModule = require('../src/entities'),
     extendersEnum = require('../src/extenders');
