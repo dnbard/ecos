@@ -1,5 +1,5 @@
 var expect = (require('chai')).expect,
-    factory = require('../factory.js'),
+    factory = require('../src/factory.js'),
     _ = require('lodash');
 
 var fixtures = [{

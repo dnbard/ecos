@@ -1,6 +1,6 @@
-var _ = require('./src/lodash.custom'),
+var _ = require('./lodash.custom'),
     Entities = require('./entities.js'),
-    Extenders = require('./src/extenders.js');
+    Extenders = require('./extenders.js');
 
 var methods = {},
     extenders = {},
